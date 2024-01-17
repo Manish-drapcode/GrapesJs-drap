@@ -5,7 +5,7 @@ const editor = grapesjs.init({
     height: "650px",
     width: "auto",
     storageManager: false,
-    panels: { defaults: [] },
+   
   
     blockManager: {
       appendTo: "#blocks",
@@ -56,6 +56,16 @@ const editor = grapesjs.init({
         {
           id: "layers",
           el: ".panel__right",
+          resizable: {
+            maxDim: 250,
+            minDim: 200,
+            tc: 0, // Top handler
+            cl: 0, // Left handler
+            cr: 1, // Right handler
+            bc: 0, // Bottom handler
+      
+            keyWidth: 'flex-basis',
+          }
         },
         {
           id: 'panel-switcher',
@@ -134,9 +144,9 @@ const editor = grapesjs.init({
   
   editor.BlockManager.add("input", {
     label: "input",
-    category: "default",
+    category: "custom",
     content: {
-      tagName: "div",
+      tagName: "text",
       draggable: true,
       attributes: { color: "red" },
       components: [
